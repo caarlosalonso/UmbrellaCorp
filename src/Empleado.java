@@ -2,6 +2,7 @@ import paqueteDNI.Dni;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 
 public class Empleado {
@@ -63,22 +64,29 @@ public class Empleado {
         LocalDate fechaActual = LocalDate.now();
         long anosVigencia =  ChronoUnit.YEARS.between(fechaContrato,fechaActual);
         System.out.println(anosVigencia);
-        //this.sueldo = sueldo + vigencia* (int)anosVigencia;
     }
-    /*
-        public void cumpleMes(){
-            LocalDate fechaActual = LocalDate.now();
+
+
+        public boolean cumpleMes2(){
+            LocalDate fechaActual = LocalDate.of(2024,02,12);
+            LocalDate ultimoDia = fechaActual.with(TemporalAdjusters.lastDayOfMonth());
+            System.out.println(ultimoDia);
+
             long difAno = fechaNacimiento.until(fechaActual,ChronoUnit.YEARS);
             long difMes = fechaNacimiento.until(fechaActual,ChronoUnit.MONTHS);
+
             long mesActual = Math.abs(difAno*12 - difMes);
 
             if (mesActual==0){
                 System.out.println("Cumples este mes");
+                return true;
             }else {
                 System.out.println("Cumples en: " + mesActual + " meses.");
+                return false;
             }
         }
-    */
+
+
     public boolean cumpleMes(){
         LocalDate fechaActual = LocalDate.now();
         int mesActual = fechaActual.getMonth().compareTo(fechaNacimiento.getMonth());

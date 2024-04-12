@@ -66,7 +66,7 @@ public class Empleado {
         System.out.println(anosVigencia);
     }
 
-
+/*
         public boolean cumpleMes2(){
             LocalDate fechaActual = LocalDate.of(2024,02,12);
             LocalDate ultimoDia = fechaActual.with(TemporalAdjusters.lastDayOfMonth());
@@ -85,7 +85,7 @@ public class Empleado {
                 return false;
             }
         }
-
+*/
 
     public boolean cumpleMes(){
         LocalDate fechaActual = LocalDate.now();

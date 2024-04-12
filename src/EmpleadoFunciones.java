@@ -3,6 +3,7 @@ import paqueteDNI.Dni;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class EmpleadoFunciones {
 
@@ -33,6 +34,24 @@ public class EmpleadoFunciones {
                 "7. MOSTRAR EL SALARIO DEL MES ACTUAL DE UN EMPLEADO");
     }
 
+    public static void altaEmpleado (ArrayList<Empleado> listaEmpleados){
+        Scanner teclado = new Scanner(System.in);
 
+        System.out.println("Introduce el DNI de la persona(sin letra): ");
+        int dni = teclado.nextInt();
+
+        //Creamos un empleado auxiliar con ese dni.
+        Empleado empleadoAux = new Empleado(dni);
+
+        //Comprovamos si el usuario existe.
+        int posicion = listaEmpleados.indexOf(empleadoAux);
+
+        if (posicion!=-1){
+            System.out.println("El usuario ya existe");
+        }else {
+
+        }
+
+    }
 
 }

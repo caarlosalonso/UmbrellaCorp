@@ -1,6 +1,8 @@
 import paqueteDNI.Dni;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -49,6 +51,20 @@ public class EmpleadoFunciones {
         if (posicion!=-1){
             System.out.println("El usuario ya existe");
         }else {
+            System.out.println("Introduce el nombre del empleado: ");
+            String nombre = teclado.nextLine();
+            System.out.println("Introduce el apellido del empleado: ");
+            String apellido = teclado.nextLine();
+            System.out.println("Introduce el departamento del empleado: ");
+            String departamento = teclado.nextLine();
+            System.out.println("Introduce el sueldo del empleado: ");
+            double sueldo = teclado.nextInt();
+            try {
+                System.out.println("introduce la fecha de nacimiento del empleado: ");
+                LocalDate fechaNacimiento = LocalDate.parse(teclado.nextLine());
+            }catch (DateTimeParseException e){
+
+            }
 
         }
 

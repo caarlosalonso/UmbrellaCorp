@@ -27,18 +27,18 @@ public class Dni {
         }
     }
 
-    private static char calcularLetraNIF (int dni){
+    public static char calcularLetraNIF (int dni){
         return letras.charAt(dni%23);
     }
-    private static boolean validarNIF (String nif){
+    public static boolean validarNIF (String nif){
         int dniNumeros = extraerNumerosNIF(nif);
         char dniLetra = extraerLetraNIF(nif);
         return dniLetra == calcularLetraNIF(dniLetra);
     }
-    private static char extraerLetraNIF (String nif){
+    public static char extraerLetraNIF (String nif){
         return nif.charAt(nif.length()-1);
     }
-    private static int extraerNumerosNIF (String nif){
+    public static int extraerNumerosNIF (String nif){
         StringBuilder newNif = new StringBuilder(nif);
         newNif.deleteCharAt(nif.length());
 

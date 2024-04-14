@@ -52,11 +52,11 @@ public class EmpleadoFunciones {
             System.out.println("El usuario ya existe");
         }else {
             System.out.println("Introduce el nombre del empleado: ");
-            String nombre = teclado.nextLine();
+            String nombre = solicitarDatos();
             System.out.println("Introduce el apellido del empleado: ");
-            String apellido = teclado.nextLine();
+            String apellido = solicitarDatos();
             System.out.println("Introduce el departamento del empleado: ");
-            String departamento = teclado.nextLine();
+            String departamento = solicitarDatos();
             System.out.println("Introduce el sueldo del empleado: ");
             double sueldo = teclado.nextInt();
             try {
@@ -66,8 +66,19 @@ public class EmpleadoFunciones {
 
             }
 
+
         }
 
+    }
+    public static String solicitarDatos (){
+        Scanner teclado = new Scanner(System.in);
+
+        String introducirDatosRegex = "[A-Z]{15}";
+        String datos;
+        do {
+            datos = teclado.nextLine();
+        }while (!Pattern.matches(introducirDatosRegex,datos));
+        return datos;
     }
 
 }

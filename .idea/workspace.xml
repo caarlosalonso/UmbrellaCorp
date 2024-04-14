@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6dffea7c-26c3-4afb-a84e-d43f081c44f7" name="Changes" comment="14/04/2024 DT">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoFunciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoFunciones.java" afterDir="false" />
-    </list>
-    <list id="0ea81974-e5f1-4ad0-88d9-14a53638b750" name="Changes by david" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Empleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoFunciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoFunciones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EmpleadoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenorEdadException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenorEdadException.java" afterDir="false" />
-    </list>
+    <list default="true" id="6dffea7c-26c3-4afb-a84e-d43f081c44f7" name="Changes" comment="14/04/2024 DT&#10;Final Commit" />
+    <list id="0ea81974-e5f1-4ad0-88d9-14a53638b750" name="Changes by david" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,23 +27,6 @@
         <option name="url" value="https://github.com/caarlosalonso/UmbrellaCorp.git" />
       </UrlAndAccount>
     </option>
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/EmpleadoFunciones.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="4" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
-        <range start1="12" end1="14" start2="13" end2="19" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
-        <range start1="16" end1="16" start2="21" end2="24" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
-        <range start1="41" end1="44" start2="49" end2="49" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
-        <range start1="89" end1="90" start2="94" end2="95" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
-        <range start1="94" end1="96" start2="99" end2="99" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
-        <range start1="98" end1="100" start2="101" end2="104" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
-        <range start1="151" end1="152" start2="155" end2="156" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
-        <range start1="154" end1="157" start2="158" end2="163" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
-        <range start1="158" end1="177" start2="164" end2="174" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
-        <range start1="179" end1="179" start2="176" end2="243" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -114,13 +89,22 @@
       <option name="project" value="LOCAL" />
       <updated>1713113485708</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="14/04/2024 DT&#10;Final Commit">
+      <option name="closed" value="true" />
+      <created>1713123646945</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713123646945</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12/04/24 LT" />
     <MESSAGE value="14/04/2024 DT" />
-    <option name="LAST_COMMIT_MESSAGE" value="14/04/2024 DT" />
+    <MESSAGE value="14/04/2024 DT&#10;Final Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="14/04/2024 DT&#10;Final Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

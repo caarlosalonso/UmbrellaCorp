@@ -11,7 +11,7 @@ public class EmpleadoFunciones {
 
     public static void anadirDatos(ArrayList<Empleado> listaEmpleados) {
 
-        Empleado empleado1 = new Empleado(11111111,"Aitor","Tilla","Informática",60000, LocalDate.of(2002,4,30),LocalDate.of(2018,9,1));
+        Empleado empleado1 = new Empleado(11111111,"Aitor","Tilla","Informatica",60000, LocalDate.of(2002,4,30),LocalDate.of(2018,9,1));
         Empleado empleado2 = new Empleado(22222222, "María", "López", "Contabilidad", 55000, LocalDate.of(2005, 8, 15), LocalDate.of(2019, 6, 12));
         Empleado empleado3 = new Empleado(33333333, "Juan", "Gómez", "Recursos Humanos", 58000, LocalDate.of(2008, 3, 20), LocalDate.of(2020, 2, 28));
         Empleado empleado4 = new Empleado(44444444, "Laura", "Martínez", "Marketing", 62000, LocalDate.of(2003, 11, 10), LocalDate.of(2017, 7, 5));

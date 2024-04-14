@@ -1,6 +1,3 @@
-import paqueteDNI.Dni;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,14 +7,6 @@ public class EmpleadoMain {
 
         ArrayList<Empleado> listaEmpleados = new ArrayList<>();
         EmpleadoFunciones.anadirDatos(listaEmpleados);
-/*
-        Empleado empleado1 = new Empleado(11111111,"Aitor","Tilla","Informática",60000, LocalDate.of(2002,4,30),LocalDate.of(2018,9,1));
-
-        empleado1.VigenciaEmpresa();
-        empleado1.cumpleMes();
-        empleado1.sueldoMensual();
-        empleado1.mostrarTodo();
-*/
 
         int opcion;
         do {
@@ -34,13 +23,21 @@ public class EmpleadoMain {
                     EmpleadoFunciones.buscarEmpleado(listaEmpleados);
                     break;
                 case 4:
-                    EmpleadoFunciones.buscarEmpleadoDepartamento(listaEmpleados);
+                    EmpleadoFunciones.buscarDepartamento(listaEmpleados);
+                    break;
+
+                case 5:
+                    EmpleadoFunciones.borrarEmpleado(listaEmpleados);
                     break;
 
                 case 6:
+                    EmpleadoFunciones.subirSueldo(listaEmpleados);
+                    break;
 
+                case 7:
+                    EmpleadoFunciones.mostrarSalarioMesActual(listaEmpleados);
                     break;
             }
-        }while (opcion!=6);
+        }while (opcion!=8);
     }
 }

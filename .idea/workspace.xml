@@ -6,9 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6dffea7c-26c3-4afb-a84e-d43f081c44f7" name="Changes" comment="14/04/2024 DT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EmpleadoFunciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoFunciones.java" afterDir="false" />
+    </list>
+    <list id="0ea81974-e5f1-4ad0-88d9-14a53638b750" name="Changes by david" comment="">
       <change beforePath="$PROJECT_DIR$/src/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Empleado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmpleadoFunciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoFunciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EmpleadoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenorEdadException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenorEdadException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +36,23 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/EmpleadoFunciones.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
+        <range start1="12" end1="14" start2="13" end2="19" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
+        <range start1="16" end1="16" start2="21" end2="24" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
+        <range start1="41" end1="44" start2="49" end2="49" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
+        <range start1="89" end1="90" start2="94" end2="95" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
+        <range start1="94" end1="96" start2="99" end2="99" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
+        <range start1="98" end1="100" start2="101" end2="104" changelist="6dffea7c-26c3-4afb-a84e-d43f081c44f7" />
+        <range start1="151" end1="152" start2="155" end2="156" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
+        <range start1="154" end1="157" start2="158" end2="163" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
+        <range start1="158" end1="177" start2="164" end2="174" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
+        <range start1="179" end1="179" start2="176" end2="243" changelist="0ea81974-e5f1-4ad0-88d9-14a53638b750" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -43,16 +64,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.EmpleadoMain.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "C:/Users/frasq/IdeaProjects/UmbrellaCorp/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.EmpleadoMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/frasq/IdeaProjects/UmbrellaCorp/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -85,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713096687285</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="14/04/2024 DT">
+      <option name="closed" value="true" />
+      <created>1713113485708</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713113485708</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,10 +11,17 @@ public class EmpleadoFunciones {
 
     public static void anadirDatos(ArrayList<Empleado> listaEmpleados) {
 
-        Empleado empleado1 = new Empleado(11111111, "Aitor", "Tilla", "Informática", 60000, LocalDate.of(2002, 6, 30), LocalDate.of(2023, 9, 1));
-        Empleado empleado2 = new Empleado(22222222, "Ester", "Colero", "Logistica", 34000, LocalDate.of(2000, 4, 12), LocalDate.of(1980, 12, 25));
+        Empleado empleado1 = new Empleado(11111111,"Aitor","Tilla","Informática",60000, LocalDate.of(2002,4,30),LocalDate.of(2018,9,1));
+        Empleado empleado2 = new Empleado(22222222, "María", "López", "Contabilidad", 55000, LocalDate.of(2005, 8, 15), LocalDate.of(2019, 6, 12));
+        Empleado empleado3 = new Empleado(33333333, "Juan", "Gómez", "Recursos Humanos", 58000, LocalDate.of(2008, 3, 20), LocalDate.of(2020, 2, 28));
+        Empleado empleado4 = new Empleado(44444444, "Laura", "Martínez", "Marketing", 62000, LocalDate.of(2003, 11, 10), LocalDate.of(2017, 7, 5));
+        Empleado empleado5 = new Empleado(55555555, "Carlos", "Rodríguez", "Ventas", 60000, LocalDate.of(2006, 7, 25), LocalDate.of(2015, 9, 10));
+
         listaEmpleados.add(empleado1);
         listaEmpleados.add(empleado2);
+        listaEmpleados.add(empleado3);
+        listaEmpleados.add(empleado4);
+        listaEmpleados.add(empleado5);
 
     }
 
@@ -39,9 +47,6 @@ public class EmpleadoFunciones {
         int dni = 0;
         double sueldo=0;
         LocalDate fechaNacimiento=LocalDate.now();
-
-        DateTimeFormatter esDateFormat=
-                DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         boolean dniValido=false;
         boolean sueldoValido=false;
@@ -87,17 +92,19 @@ public class EmpleadoFunciones {
                 teclado.nextLine();
             }
 
-            while (!fechaNacimientoValido) {
+            while (!fechaNacimientoValido || fechaNacimiento.until(LocalDate.now(), ChronoUnit.YEARS)<18) {
                 try {
                     System.out.println("Introduce la fecha de nacimiento del empleado: ");
                     fechaNacimiento = LocalDate.parse(teclado.nextLine(),
                             DateTimeFormatter.ofPattern("d/M/yyyy"));
 
-                    //fechaNacimiento.format(esDateFormat);
-
                     fechaNacimientoValido =true; //Se marca como true si el formato de la fecha es correcto
-                } catch (DateTimeParseException e) {
-                    System.out.println("Formato de fecha incorrecto!");
+                } catch (DateTimeParseException | MenorEdadException e ) {
+                    if (e instanceof DateTimeParseException){
+                        System.out.println("Formato de fecha Incorrecto!");
+                }else {
+                        System.out.println("El empleado debe ser mayor de edad");
+                    }
                 }
 
             }
@@ -149,32 +156,92 @@ public class EmpleadoFunciones {
             }
         }
     }
-    public static void buscarEmpleadoDepartamento (ArrayList<Empleado> listaEmpleados){
+    public static void buscarDepartamento(ArrayList<Empleado> listaEmpleados) {     //BUSCAMOS EMPLEADO POR DEPARTAMENTO
         Scanner teclado = new Scanner(System.in);
 
-        String departamento="";
-        boolean departamentoValido=false;
-        boolean empleadoEncontrado=false;
+        String departamento;
+        System.out.println("Dame un departamento para filtrar por el: ");
+        departamento = teclado.next();
+        int countEmpleados = 0;
+        ArrayList<Empleado> empleadosFiltrados = new ArrayList<>();
 
-        //Bucle que se repite en caso de que el formato del deparamento sea incorrecto
-        while (!departamentoValido) {
-            try {
-                System.out.println("Introduce el departamento: ");
-                departamento = teclado.nextLine().toUpperCase();
-                departamentoValido = true;
-            } catch (InputMismatchException e) {
-                System.out.println("Departamento Incorrecto!");
-                teclado.nextLine();
-            }
-            for (Empleado empleado : listaEmpleados) {
-                if (empleado.getDepartamento().equals(departamento)) {
-                    empleado.mostrarTodo();
-                    empleadoEncontrado = true;
-                }
-                if (!empleadoEncontrado) {
-                    System.out.println("El departamento no existe");
-                }
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.getDepartamento().equals(departamento)) {
+                empleadosFiltrados.add(empleado);
+                countEmpleados++;
             }
         }
+
+        System.out.println("FILTRANDO " + countEmpleados + " RESULTADO(S)...");
+        for (Empleado empleado : empleadosFiltrados) {
+            empleado.mostrarReducido();
+        }
+    }
+
+    public static void borrarEmpleado(ArrayList<Empleado> listaEmpleados) {     //BORRAMOS EMPLEADO SEGÚN SU CODIGO DE EMPLEADO
+
+        Empleado codigoEmpleadoProv = empleadoAuxYConfirmarEmpleado(listaEmpleados);
+
+        listaEmpleados.removeIf(empleado -> empleado.equals(codigoEmpleadoProv));
+    }
+
+    public static void subirSueldo(ArrayList<Empleado> listaEmpleados) {        //SUBIMOS EL SUELDO PORCENTUALMENTE
+        Scanner teclado = new Scanner(System.in);
+
+        Empleado codigoEmpleadoProv = empleadoAuxYConfirmarEmpleado(listaEmpleados);
+
+        boolean esSueldoCorrecto = false;
+        double sueldoPorcentaje;
+
+        do {
+            System.out.println("Dame un porcentaje para subir el sueldo ");
+            sueldoPorcentaje = teclado.nextInt();
+            if (sueldoPorcentaje > 0) {
+                esSueldoCorrecto = true;
+            } else {
+                System.out.println("la subida debe ser mayor que 0 ");
+            }
+        } while (!esSueldoCorrecto);
+
+        for (Empleado empleado : listaEmpleados) {
+            if (empleado.equals(codigoEmpleadoProv)) {
+                double variacion = empleado.getSueldo();
+                double variacionHecha = variacion * ((sueldoPorcentaje / 100) + 1);
+                empleado.setSueldo(variacionHecha);
+
+                System.out.println("Sueldo actualizado para " + empleado.getNombre() + ": " + empleado.getSueldo());
+            }
+        }
+    }
+    public static void mostrarSalarioMesActual(ArrayList<Empleado> listaEmpleados) {        //MOSTRAR SALARIO DEL MES ACTUAL DE EL EMPLEADO SELECCIONADO POR SU CODIGO DE EMPLEADO
+
+        Empleado codigoEmpleadoProv = empleadoAuxYConfirmarEmpleado(listaEmpleados);
+
+        for (Empleado empleado : listaEmpleados){
+            if (empleado.equals(codigoEmpleadoProv)){
+                empleado.sueldoMensual();
+            }
+        }
+    }
+
+    public static Empleado empleadoAuxYConfirmarEmpleado (ArrayList<Empleado> listaEmpleados) {     //FUNCION ASISTENTE PARA PEDIR Y VERIFICAR EL CODIGO DE EMPLEADO, DEVUELVE UN EMPLEADO AUXILIAR
+        Scanner teclado = new Scanner(System.in);
+
+        Empleado codigoEmpleadoProv;
+        boolean contieneCodigoEmpleado = false;
+        String codigoEmpleado;
+
+        do {
+            System.out.println("Dame el Codigo Empleado");
+            codigoEmpleado = teclado.nextLine();
+            codigoEmpleadoProv = new Empleado(codigoEmpleado);
+            if (listaEmpleados.contains(codigoEmpleadoProv)) {
+                System.out.println("El Empleado buscado se encuentra en la lista");
+                contieneCodigoEmpleado = true;
+            } else {
+                System.out.println("El empleado no se encuentra en la lista\nVuelva a intentar");
+            }
+        } while (!contieneCodigoEmpleado);
+        return codigoEmpleadoProv;
     }
 }

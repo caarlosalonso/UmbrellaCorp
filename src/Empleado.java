@@ -37,7 +37,9 @@ public class Empleado {
     public Empleado (int dni){
         this.dni = new Dni(dni);
     }
-    public Empleado (String codigoEmpleado){this.codigoEmpleado = "UMBRE" + contadorEmpleado++;}
+    public Empleado (String codigoEmpleado){
+        this.codigoEmpleado = codigoEmpleado;
+    }
 
     //Getters
     public String getCodigoEmpleado() {
@@ -134,6 +136,18 @@ public class Empleado {
             System.out.println(sueldoMes);
         }
 
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
 }

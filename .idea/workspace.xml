@@ -97,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713123646945</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="14/04/2024 DT&#10;Final Commit">
+      <option name="closed" value="true" />
+      <created>1713124271798</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713124271798</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

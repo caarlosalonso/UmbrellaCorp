@@ -5,6 +5,9 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
+/**
+ * @author Carlos Alonso, David Rodrigues
+ */
 public class Empleado {
     //Atributos
     private String codigoEmpleado;

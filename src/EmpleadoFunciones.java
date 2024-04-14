@@ -7,6 +7,9 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+/**
+ * @author Carlos Alonso, David Rodrigues
+ */
 public class EmpleadoFunciones {
 
     public static void anadirDatos(ArrayList<Empleado> listaEmpleados) {

@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * @author Carlos Alonso, David Rodrigues
+ */
 public class EmpleadoMain {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);

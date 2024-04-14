@@ -34,7 +34,7 @@ public class EmpleadoMain {
                     EmpleadoFunciones.buscarEmpleado(listaEmpleados);
                     break;
                 case 4:
-
+                    EmpleadoFunciones.buscarEmpleadoDepartamento(listaEmpleados);
                     break;
 
                 case 6:

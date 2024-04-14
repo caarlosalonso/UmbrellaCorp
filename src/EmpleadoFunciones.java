@@ -121,37 +121,60 @@ public class EmpleadoFunciones {
         return datos;
     }
 
-    public static void buscarEmpleado(ArrayList<Empleado> listaEmpleados){
+    public static void buscarEmpleado(ArrayList<Empleado> listaEmpleados) {
         Scanner teclado = new Scanner(System.in);
 
-        String codigoEmpleado="UMBRE01";
-        boolean codigoEmpleadoValido=false;
+        String codigoEmpleado = "";
+        boolean codigoEmpleadoValido = false;
+        boolean empleadoEncontrado = false;
 
-        //Bucle que se repite en caso de que el formato de dni sea incorrecto
-        while(!codigoEmpleadoValido) {
+        //Bucle que se repite en caso de que el formato del codigo empleado sea incorrecto
+        while (!codigoEmpleadoValido) {
             try {
                 System.out.println("Introduce el codigo de empleado de la persona: ");
-                codigoEmpleado = teclado.nextLine();
+                codigoEmpleado = teclado.nextLine().toUpperCase();
                 codigoEmpleadoValido = true; //Se marca como true si no se lanza ninguna excepcion
             } catch (InputMismatchException e) {
                 System.out.println("Codigo de empleado Incorrecto!");
                 teclado.nextLine();
             }
-            //Creamos un empleado auxiliar solo con el dni
-            Empleado empleadoAux = new Empleado(codigoEmpleado);
-
-            //Obtenemos la posicion en la que se encuentra el empleado original
-            int posicion = listaEmpleados.indexOf(empleadoAux);
-
-            if(posicion!=-1) {
-                //Creamos otro objeto Empleado que obtiene la posicion del real (dado por el auxiliar)
-                //y lo mostramos utilizando el metodo 'mostrarTodo'
-                Empleado empleadoEncontrado = listaEmpleados.get(posicion);
-                empleadoEncontrado.mostrarTodo();
-            }else {
-                System.out.println("El usuario no existe");
+            for (Empleado empleado : listaEmpleados) {
+                if (empleado.getCodigoEmpleado().equals(codigoEmpleado)) {
+                    empleado.mostrarTodo();
+                    empleadoEncontrado = true;
+                }
+                if (!empleadoEncontrado) {
+                    System.out.println("El usuario no existe");
+                }
             }
         }
     }
+    public static void buscarEmpleadoDepartamento (ArrayList<Empleado> listaEmpleados){
+        Scanner teclado = new Scanner(System.in);
 
+        String departamento="";
+        boolean departamentoValido=false;
+        boolean empleadoEncontrado=false;
+
+        //Bucle que se repite en caso de que el formato del deparamento sea incorrecto
+        while (!departamentoValido) {
+            try {
+                System.out.println("Introduce el departamento: ");
+                departamento = teclado.nextLine().toUpperCase();
+                departamentoValido = true;
+            } catch (InputMismatchException e) {
+                System.out.println("Departamento Incorrecto!");
+                teclado.nextLine();
+            }
+            for (Empleado empleado : listaEmpleados) {
+                if (empleado.getDepartamento().equals(departamento)) {
+                    empleado.mostrarTodo();
+                    empleadoEncontrado = true;
+                }
+                if (!empleadoEncontrado) {
+                    System.out.println("El departamento no existe");
+                }
+            }
+        }
+    }
 }

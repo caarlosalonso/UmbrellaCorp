@@ -1,0 +1,198 @@
+Index: src/EmpleadoFunciones.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import paqueteDNI.Dni;\r\n\r\nimport java.time.DateTimeException;\r\nimport java.time.LocalDate;\r\nimport java.time.format.DateTimeParseException;\r\nimport java.util.ArrayList;\r\nimport java.util.Scanner;\r\nimport java.util.regex.Pattern;\r\n\r\npublic class EmpleadoFunciones {\r\n\r\n    public static void anadirDatos(ArrayList<Empleado>listaEmpleados){\r\n\r\n        Empleado empleado1 = new Empleado(11111111,\"Aitor\",\"Tilla\",\"Informática\",60000, LocalDate.of(2002,6,30),LocalDate.of(2023,9,1));\r\n        Empleado empleado2 = new Empleado(22222222, \"Ester\", \"Colero\",\"Logistica\",34000,LocalDate.of(2000,4,12),LocalDate.of(1980,12,25));\r\n        listaEmpleados.add(empleado1);\r\n        listaEmpleados.add(empleado2);\r\n\r\n    }\r\n\r\n    public static void mostrarLista(ArrayList<Empleado> listaEmpleados) {\r\n        for (Empleado empleado : listaEmpleados){\r\n            System.out.println(empleado);\r\n        }\r\n    }\r\n\r\n    public static void menu(int opcion){\r\n        Scanner teclado = new Scanner(System.in);\r\n        System.out.println(\"UMBRELLA CORP\\n\" +\r\n                \"1. MOSTRAR TODOS LOS EMPLEADOS\\n\" +\r\n                \"2. DAR DE ALTA UN NUEVO EMPLEADO\\n\" +\r\n                \"3. BUSCAR UN EMPLEADO\\n\" +\r\n                \"4. BUSCAR TODOS LOS EMPLEADOS DE UN DEPARTAMENTO\\n\" +\r\n                \"5. BORRAR UN EMPLEADO\\n\" +\r\n                \"6. SUBIR EL SUELDO A UN EMPLEADO\\n\" +\r\n                \"7. MOSTRAR EL SALARIO DEL MES ACTUAL DE UN EMPLEADO\");\r\n    }\r\n\r\n    public static void altaEmpleado (ArrayList<Empleado> listaEmpleados){\r\n        Scanner teclado = new Scanner(System.in);\r\n\r\n        System.out.println(\"Introduce el DNI de la persona(sin letra): \");\r\n        int dni = teclado.nextInt();\r\n\r\n        //Creamos un empleado auxiliar con ese dni.\r\n        Empleado empleadoAux = new Empleado(dni);\r\n\r\n        //Comprovamos si el usuario existe.\r\n        int posicion = listaEmpleados.indexOf(empleadoAux);\r\n\r\n        if (posicion!=-1){\r\n            System.out.println(\"El usuario ya existe\");\r\n        }else {\r\n            System.out.println(\"Introduce el nombre del empleado: \");\r\n            String nombre = teclado.nextLine();\r\n            System.out.println(\"Introduce el apellido del empleado: \");\r\n            String apellido = teclado.nextLine();\r\n            System.out.println(\"Introduce el departamento del empleado: \");\r\n            String departamento = teclado.nextLine();\r\n            System.out.println(\"Introduce el sueldo del empleado: \");\r\n            double sueldo = teclado.nextInt();\r\n            try {\r\n                System.out.println(\"introduce la fecha de nacimiento del empleado: \");\r\n                LocalDate fechaNacimiento = LocalDate.parse(teclado.nextLine());\r\n            }catch (DateTimeParseException e){\r\n\r\n            }\r\n\r\n        }\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/EmpleadoFunciones.java b/src/EmpleadoFunciones.java
+--- a/src/EmpleadoFunciones.java	(revision 587c8247f689d53ce5636d084ac090d5ed8cb5d2)
++++ b/src/EmpleadoFunciones.java	(date 1712934000484)
+@@ -63,9 +63,17 @@
+                 System.out.println("introduce la fecha de nacimiento del empleado: ");
+                 LocalDate fechaNacimiento = LocalDate.parse(teclado.nextLine());
+             }catch (DateTimeParseException e){
+-
++                System.out.println("Formato de fecha incorrecto!");
+             }
++            //Creamos un nuevo empleado con los datos introducidos.
++            Empleado nuevoEmpleado = new Empleado(dni,nombre,apellido,departamento,sueldo,LocalDate.now(),LocalDate.now());
++            listaEmpleados.add(nuevoEmpleado);
++            System.out.println("Se ha añadido el empleado con dni: " +dni);
+ 
++            //Mostramos la lista de empleados para comprobar el resultado
++            for (Empleado empleado:listaEmpleados){
++                System.out.println(empleado);
++            }
+         }
+ 
+     }
+Index: src/EmpleadoMain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import paqueteDNI.Dni;\r\n\r\nimport java.time.LocalDate;\r\nimport java.util.ArrayList;\r\n\r\npublic class EmpleadoMain {\r\n    public static void main(String[] args) {\r\n\r\n\r\n        ArrayList<Empleado> listaEmpleados = new ArrayList<>();\r\n        EmpleadoFunciones.anadirDatos(listaEmpleados);\r\n\r\n        Empleado empleado1 = new Empleado(11111111,\"Aitor\",\"Tilla\",\"Informática\",60000, LocalDate.of(2002,4,30),LocalDate.of(2018,9,1));\r\nempleado1.cumpleMes2();\r\n        empleado1.VigenciaEmpresa();\r\n        empleado1.cumpleMes();\r\n        empleado1.sueldoMensual();\r\n        empleado1.mostrarTodo();\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/EmpleadoMain.java b/src/EmpleadoMain.java
+--- a/src/EmpleadoMain.java	(revision 587c8247f689d53ce5636d084ac090d5ed8cb5d2)
++++ b/src/EmpleadoMain.java	(date 1712934000488)
+@@ -2,20 +2,22 @@
+ 
+ import java.time.LocalDate;
+ import java.util.ArrayList;
++import java.util.Scanner;
+ 
+ public class EmpleadoMain {
+     public static void main(String[] args) {
+-
++        Scanner teclado = new Scanner(System.in);
+ 
+         ArrayList<Empleado> listaEmpleados = new ArrayList<>();
+         EmpleadoFunciones.anadirDatos(listaEmpleados);
+-
++/*
+         Empleado empleado1 = new Empleado(11111111,"Aitor","Tilla","Informática",60000, LocalDate.of(2002,4,30),LocalDate.of(2018,9,1));
+-empleado1.cumpleMes2();
++
+         empleado1.VigenciaEmpresa();
+         empleado1.cumpleMes();
+         empleado1.sueldoMensual();
+         empleado1.mostrarTodo();
+-
++*/
++        EmpleadoFunciones.altaEmpleado(listaEmpleados);
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"6dffea7c-26c3-4afb-a84e-d43f081c44f7\" name=\"Changes\" comment=\"12/04/24 LT\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/EmpleadoFunciones.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/EmpleadoFunciones.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;sopa8873&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"6902aa10-30c4-48f5-b4c8-5f6badc66301\" />\r\n        <option name=\"url\" value=\"https://github.com/caarlosalonso/UmbrellaCorp.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2eaWFDxP3jDcG8ReVALIGAoIeDn\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/frasq/IdeaProjects/UmbrellaCorp/src/Main.java&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"6dffea7c-26c3-4afb-a84e-d43f081c44f7\" name=\"Changes\" comment=\"\" />\r\n      <created>1712143064253</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1712143064253</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"12/04/24 LT\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1712915071238</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1712915071238</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"12/04/24 LT\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"12/04/24 LT\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/Main.java</url>\r\n          <line>13</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 587c8247f689d53ce5636d084ac090d5ed8cb5d2)
++++ b/.idea/workspace.xml	(date 1712937794784)
+@@ -4,32 +4,28 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6dffea7c-26c3-4afb-a84e-d43f081c44f7" name="Changes" comment="12/04/24 LT">
++    <list default="true" id="6dffea7c-26c3-4afb-a84e-d43f081c44f7" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_04_2024_10_53__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_04_2024_10_53__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_04_2024_10_53__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_04_2024_10_53__Changes_1.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/EmpleadoFunciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoFunciones.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/EmpleadoMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EmpleadoMain.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory">{
+-  &quot;lastFilter&quot;: {
+-    &quot;state&quot;: &quot;OPEN&quot;,
+-    &quot;assignee&quot;: &quot;sopa8873&quot;
+-  }
+-}</component>
+-  <component name="GithubPullRequestsUISettings">
+-    <option name="selectedUrlAndAccountId">
+-      <UrlAndAccount>
+-        <option name="accountId" value="6902aa10-30c4-48f5-b4c8-5f6badc66301" />
+-        <option name="url" value="https://github.com/caarlosalonso/UmbrellaCorp.git" />
+-      </UrlAndAccount>
+-    </option>
+-  </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 3
+ }</component>
+@@ -41,14 +37,37 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/frasq/IdeaProjects/UmbrellaCorp/src/Main.java&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.EmpleadoMain.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "master",
++    "kotlin-language-version-configured": "true",
++    "onboarding.tips.debug.path": "C:/Users/frasq/IdeaProjects/UmbrellaCorp/src/Main.java"
+   }
+-}</component>
++}]]></component>
++  <component name="RunManager">
++    <configuration name="EmpleadoMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="EmpleadoMain" />
++      <module name="UmbrellaCorp" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.EmpleadoMain" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="jdk-1.8.0_402-corretto-1.8.0_402-4caba194b151-ae57be32" />
++      </set>
++    </attachedChunks>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -58,30 +77,6 @@
+       <option name="presentableId" value="Default" />
+       <updated>1712143064253</updated>
+     </task>
+-    <task id="LOCAL-00001" summary="12/04/24 LT">
+-      <option name="closed" value="true" />
+-      <created>1712915071238</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1712915071238</updated>
+-    </task>
+-    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="12/04/24 LT" />
+-    <option name="LAST_COMMIT_MESSAGE" value="12/04/24 LT" />
+-  </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/Main.java</url>
+-          <line>13</line>
+-          <option name="timeStamp" value="1" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+-  </component>
+ </project>
+\ No newline at end of file

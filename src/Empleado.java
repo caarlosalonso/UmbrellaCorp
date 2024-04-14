@@ -1,9 +1,8 @@
 import paqueteDNI.Dni;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalAdjusters;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Empleado {
@@ -38,32 +37,41 @@ public class Empleado {
     public Empleado (int dni){
         this.dni = new Dni(dni);
     }
-    public Empleado (String codigoEmpleado){
-        this.codigoEmpleado = "UMBRE" + contadorEmpleado++;
+    public Empleado (String codigoEmpleado){this.codigoEmpleado = "UMBRE" + contadorEmpleado++;}
+
+    //Getters
+    public String getCodigoEmpleado() {
+        return codigoEmpleado;
     }
+    public String getDepartamento() {
+        return departamento;
+    }
+    //Metodos
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Empleado empleado = (Empleado) o;
-        return Objects.equals(codigoEmpleado, empleado.codigoEmpleado);
+        return Objects.equals(codigoEmpleado, empleado.codigoEmpleado) && Objects.equals(dni, empleado.dni);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codigoEmpleado);
+        return Objects.hash(codigoEmpleado, dni);
     }
 
     void mostrarTodo() {
+        DateTimeFormatter esDateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         System.out.println("codigoEmpleado= " + codigoEmpleado + ","+
                 "dni= " + dni.getNIF() + "," +
                 "nombre= " + nombre + "," +
                 "apellido= " + apellido + "," +
                 "departamento= " + departamento + "," +
                 "sueldo= " + sueldo + "," +
-                "fechaNacimiento= " + fechaNacimiento + "," +
-                "fechaContrato= " + fechaContrato);
+                "fechaNacimiento= " + fechaNacimiento.format(esDateFormat) + "," +
+                "fechaContrato= " + fechaContrato.format(esDateFormat));
     }
 
     public void mostrarReducido() {

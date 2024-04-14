@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Empleado {
     //Atributos
@@ -37,8 +38,24 @@ public class Empleado {
     public Empleado (int dni){
         this.dni = new Dni(dni);
     }
+    public Empleado (String codigoEmpleado){
+        this.codigoEmpleado = "UMBRE" + contadorEmpleado++;
+    }
 
-    public void mostrarTodo() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empleado empleado = (Empleado) o;
+        return Objects.equals(codigoEmpleado, empleado.codigoEmpleado);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codigoEmpleado);
+    }
+
+    void mostrarTodo() {
         System.out.println("codigoEmpleado= " + codigoEmpleado + ","+
                 "dni= " + dni.getNIF() + "," +
                 "nombre= " + nombre + "," +

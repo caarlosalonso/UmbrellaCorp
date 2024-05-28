@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6dffea7c-26c3-4afb-a84e-d43f081c44f7" name="Changes" comment="14/04/2024 DT&#10;Final Commit" />
-    <list id="0ea81974-e5f1-4ad0-88d9-14a53638b750" name="Changes by david" comment="" />
+    <list default="true" id="6dffea7c-26c3-4afb-a84e-d43f081c44f7" name="Changes" comment="12/04/24 LT">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_04_2024_16_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_04_2024_16_46__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_04_2024_12_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_04_2024_12_12__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,21 +44,12 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.EmpleadoMain.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/frasq/IdeaProjects/UmbrellaCorp/src/Main.java&quot;
   }
 }</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-1.8.0_402-corretto-1.8.0_402-4caba194b151-ae57be32" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,46 +67,20 @@
       <option name="project" value="LOCAL" />
       <updated>1712915071238</updated>
     </task>
-    <task id="LOCAL-00002" summary="14/04/2024 DT">
+    <task id="LOCAL-00002" summary="12/04/24 LT">
       <option name="closed" value="true" />
-      <created>1713096687284</created>
+      <created>1712917381357</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1713096687285</updated>
+      <updated>1712917381357</updated>
     </task>
-    <task id="LOCAL-00003" summary="14/04/2024 DT">
-      <option name="closed" value="true" />
-      <created>1713113485708</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1713113485708</updated>
-    </task>
-    <task id="LOCAL-00004" summary="14/04/2024 DT&#10;Final Commit">
-      <option name="closed" value="true" />
-      <created>1713123646945</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1713123646945</updated>
-    </task>
-    <task id="LOCAL-00005" summary="14/04/2024 DT&#10;Final Commit">
-      <option name="closed" value="true" />
-      <created>1713124271798</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1713124271798</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="12/04/24 LT" />
-    <MESSAGE value="14/04/2024 DT" />
-    <MESSAGE value="14/04/2024 DT&#10;Final Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="14/04/2024 DT&#10;Final Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="12/04/24 LT" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
